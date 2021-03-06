@@ -26,7 +26,10 @@ Plug 'roxma/LanguageServer-php-neovim',  {'do': 'composer install && composer ru
 Plug 'posva/vim-vue'
 
 Plug 'phpactor/phpactor', {'for': 'php', 'tag': '*', 'do': 'composer install --no-dev -o'}
-
+Plug 'adoy/vim-php-refactoring-toolbox'
+Plug 'joshdick/onedark.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 " Initialize plugin system
 call plug#end()
 
@@ -34,6 +37,9 @@ inoremap jk <ESC>
 nmap <C-n> :NERDTreeToggle<CR>
 vmap ++ <plug>NERDCommenterToggle
 nmap ++ <plug>NERDCommenterToggle
+
+let g:NERDCreateDefaultMappings = 1
+
 
 set encoding=utf8
 set guifont=DroidSansMono\ Nerd\ Font\ 11
@@ -86,7 +92,7 @@ set shiftwidth=2
 " always uses spaces instead of tab characters
 set expandtab
 
-colorscheme gruvbox
+colorscheme gruvbox 
 
 " sync open file with NERDTree
 " " Check if NERDTree is open or active
@@ -275,3 +281,15 @@ xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
+"php FileType
+autocmd FileType php set iskeyword+=$
+
+
+"Airline configs
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'default'
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#right_sep = ''
+let g:airline#extensions#tabline#right_alt_sep = ''
+let g:airline_theme = 'gruvbox'

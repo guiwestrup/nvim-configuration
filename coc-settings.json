@@ -1,6 +1,6 @@
 {
   "phpactor.enable": true,
-  "phpactor.path": "/home/guilherme/Downloads/phpactor/bin/phpactor",
+  "phpactor.path": "/home/guilherme/Apps/phpactor/bin/phpactor",
   "languageserver": {
     "phpactor": {
       "command": "phpactor",

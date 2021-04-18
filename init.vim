@@ -11,6 +11,9 @@ Plug 'ctrlpvim/ctrlp.vim' " fuzzy find files
 Plug 'scrooloose/nerdcommenter'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
+"git integration
+Plug 'tpope/vim-fugitive'
+
 Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'morhetz/gruvbox'
@@ -30,6 +33,17 @@ Plug 'adoy/vim-php-refactoring-toolbox'
 Plug 'joshdick/onedark.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'jwalton512/vim-blade'
+
+Plug 'mattn/emmet-vim'
+
+"Search on file ctrl+shift+f
+Plug 'mileszs/ack.vim'
+
+Plug 'sheerun/vim-polyglot'
+
+" Intellisense
+Plug 'josa42/vim-lightline-coc'
 " Initialize plugin system
 call plug#end()
 
@@ -42,7 +56,7 @@ let g:NERDCreateDefaultMappings = 1
 
 
 set encoding=utf8
-set guifont=DroidSansMono\ Nerd\ Font\ 11
+set guifont=Fira_Code:h11
 let g:webdevicons_enable = 1
 let g:webdevicons_enable_nerdtree = 1
 " open NERDTree automatically
@@ -50,29 +64,29 @@ let g:webdevicons_enable_nerdtree = 1
 "autocmd VimEnter * NERDTree
 
 let g:NERDTreeGitStatusWithFlags = 1
-"let g:WebDevIconsUnicodeDecorateFolderNodes = 1
-"let g:NERDTreeGitStatusNodeColorization = 1
-"let g:NERDTreeColorMapCustom = {
-    "\ "Staged"    : "#0ee375",  
-    "\ "Modified"  : "#d9bf91",  
-    "\ "Renamed"   : "#51C9FC",  
-    "\ "Untracked" : "#FCE77C",  
-    "\ "Unmerged"  : "#FC51E6",  
-    "\ "Dirty"     : "#FFBD61",  
-    "\ "Clean"     : "#87939A",   
-    "\ "Ignored"   : "#808080"   
-    "\ }                         
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+let g:NERDTreeGitStatusNodeColorization = 1
+let g:NERDTreeColorMapCustom = {
+    \ "Staged"    : "#0ee375",  
+    \ "Modified"  : "#d9bf91",  
+    \ "Renamed"   : "#51C9FC",  
+    \ "Untracked" : "#FCE77C",  
+    \ "Unmerged"  : "#FC51E6",  
+    \ "Dirty"     : "#FFBD61",  
+    \ "Clean"     : "#87939A",   
+    \ "Ignored"   : "#808080"   
+    \ }                         
 
 
-let g:NERDTreeIgnore = ['^node_modules$', '^vendor$']
+let g:NERDTreeIgnore = ['^node_modules$']
 
 " vim-prettier
-let g:prettier#quickfix_enabled = 0
+let g:prettier#quickfix_enabled = 1
 "let g:prettier#quickfix_auto_focus = 0
 " prettier command for coc
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 " run prettier on save
-"let g:prettier#autoformat = 0
+let g:prettier#autoformat = 0
 "autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 
 
@@ -293,3 +307,23 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#right_sep = ''
 let g:airline#extensions#tabline#right_alt_sep = ''
 let g:airline_theme = 'gruvbox'
+
+
+"switch tabs
+if !exists('g:lasttab')
+  let g:lasttab = 1
+endif
+nmap <Leader>tl :exe "tabn ".g:lasttab<CR>
+au TabLeave * let g:lasttab = tabpagenr()
+
+" Define some single Blade directives. This variable is used for highlighting only.
+" let g:blade_custom_directives = ['datetime', 'javascript']
+
+" Define pairs of Blade directives. This variable is used for highlighting and indentation.
+" let g:blade_custom_directives_pairs = {
+"      \   'markdown': 'endmarkdown',
+"      \   'cache': 'endcache',
+"      \ }
+
+let g:user_emmet_mode='a'    "enable all function in all mode.
+let g:user_emmet_leader_key=','

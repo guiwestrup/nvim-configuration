@@ -44,6 +44,9 @@ Plug 'sheerun/vim-polyglot'
 
 " Intellisense
 Plug 'josa42/vim-lightline-coc'
+
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 " Initialize plugin system
 call plug#end()
 
@@ -329,3 +332,6 @@ let g:user_emmet_mode='a'    "enable all function in all mode.
 let g:user_emmet_leader_key=','
 
 set clipboard+=unnamedplus
+
+nnoremap <C-p> :GFiles<CR>
+nnoremap <C-l> :Rg<CR>

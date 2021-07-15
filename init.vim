@@ -59,7 +59,7 @@ let g:NERDCreateDefaultMappings = 1
 
 
 set encoding=utf8
-set guifont=Fira_Code:h11
+set guifont=FiraCode_Nerd_Font:h10
 let g:webdevicons_enable = 1
 let g:webdevicons_enable_nerdtree = 1
 " open NERDTree automatically
@@ -334,4 +334,9 @@ let g:user_emmet_leader_key=','
 set clipboard+=unnamedplus
 
 nnoremap <C-p> :GFiles<CR>
-nnoremap <C-l> :Rg<CR>
+nnoremap <C-w> :Rg<CR>
+
+let g:coc_node_path = '/home/guilhermewestrup/.nvm/versions/node/v14.17.1/bin/node'
+
+"Tirar todos os espaços do final
+nmap me<space> :%s/\s\+$//g<cr>:set nohlsearch<cr><c-l>

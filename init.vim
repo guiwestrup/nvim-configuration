@@ -109,7 +109,7 @@ set shiftwidth=2
 " always uses spaces instead of tab characters
 set expandtab
 
-colorscheme gruvbox 
+colorscheme gruvbox
 
 " sync open file with NERDTree
 " " Check if NERDTree is open or active
@@ -336,7 +336,7 @@ set clipboard+=unnamedplus
 nnoremap <C-p> :GFiles<CR>
 nnoremap <C-w> :Rg<CR>
 
-let g:coc_node_path = '/home/guilhermewestrup/.nvm/versions/node/v14.17.1/bin/node'
+let g:coc_node_path = '/home/guiwestrup/.nvm/versions/node/v14.17.4/bin/node'
 
 "Tirar todos os espaços do final
 nmap me<space> :%s/\s\+$//g<cr>:set nohlsearch<cr><c-l>
